@@ -23,22 +23,12 @@ dpi_mode=87
 #############################################################################################
 
 ## Standard 320x240p@60hz Boot Timing!!
-hdmi_timings=320 1 16 30 34 240 1 2 3 22 0 0 0 60 0 6400000 1 #Pi2SCART/VGA666 320x240p@60hz
-
-## Pi2SCART & VGA666 only!!
-#dtoverlay=vga666
-
+### MOD FOR SONY CRT
+hdmi_timings=320 1 10 30 40 240 1 2 3 22 0 0 0 60 0 6400000 1 #Pi2SCART/VGA666 320x240p@60hz
 ## RGB-Pi only!!
-#dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2
-#dtoverlay=rgb-pi
-#dpi_output_format=6
-
-## RetroTINK Ultimate only!!
-dtoverlay=dpi24
-dpi_output_format=519
-
-## Experimental Boot Timing!!
-#hdmi_timings=450 1 50 30 90 240 1 1 1 30 0 0 0 60 0 9600000 1 #Wide 450x240p@60hz WORKS?!
+dtoverlay=pwm-2chan,pin=18,func=2,pin2=19,func2=2
+dtoverlay=rgb-pi
+dpi_output_format=6
 
 #############################################################################################
 #############################################################################################

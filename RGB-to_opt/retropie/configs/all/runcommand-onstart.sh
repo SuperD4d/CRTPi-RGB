@@ -190,7 +190,8 @@ if [[ "$emul_lr" == "lr" ]]; then
 # change timings for 256x192 systems to 2048x192p
 	elif 		
 		[[ "$system" == "mastersystem" ]] || 
-		[[ "$system" == "sg-1000" ]] ; then
+		[[ "$system" == "sg-1000" ]] || 
+		[[ "$system" == "zxspectrum" ]]; then
 			vcgencmd hdmi_timings 2048 1 160 202 320 192 1 27 5 38 0 0 0 60 0 42954545 1 > /dev/null #CRTPi 2048x192p Timing Adjusted
 			tvservice -c "DMT 87" > /dev/null
 			fbset -depth 8 && fbset -depth 16 && fbset -depth 24 -xres 2048 -yres 192 > /dev/null #24b depth
@@ -219,8 +220,7 @@ if [[ "$emul_lr" == "lr" ]]; then
 		[[ "$system" == "atari2600" ]] || 
 		[[ "$system" == "atari5200" ]] || 
 		[[ "$system" == "atari800" ]] || 
-		[[ "$system" == "amiga" ]] || 
-		[[ "$system" == "zxspectrum" ]] ; then
+		[[ "$system" == "amiga" ]]  ; then
 			vcgencmd hdmi_timings 1920 1 137 247 295 192 1 27 7 36 0 0 0 60 0 40860000 1 > /dev/null #CRTPi 1920x192p Timing Adjusted
 			tvservice -c "DMT 87" > /dev/null
 			fbset -depth 8 && fbset -depth 16 && fbset -depth 24 -xres 1920 -yres 192 > /dev/null #24b depth
@@ -261,7 +261,7 @@ elif
 	
 else
 # for all other non-libretro emulators switch to 320x240p
-	vcgencmd hdmi_timings 320 1 16 30 34 240 1 2 3 22 0 0 0 60 0 6400000 1 > /dev/null #CRTPi 320x240p Timing Adjusted
+    vcgencmd hdmi_timings 320 1 10 30 40 240 1 2 3 22 0 0 0 60 0 6400000 1 > /dev/null #CRTPi 320x240p Timing Adjusted
 	tvservice -c "DMT 87" 
 	fbset -depth 8 && fbset -depth 16 && fbset -depth 24 -xres 320 -yres 240 > /dev/null #24b depth
 fi
